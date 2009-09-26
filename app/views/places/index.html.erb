@@ -1,0 +1,23 @@
+<%
+if(@place.nil?) then
+puts "@place is null"
+  @place = Place.new
+end
+%>
+<% form_for :places, ([@location,@place]) do |f| %>   
+  <h1>Lunchpicker</h1>
+  <%= f.error_messages %>
+  <p>
+    1.) Select a location
+    <select id="location" name="location">
+      <option value="">Please select a location</option>
+      <% @location.each do |location| %>
+        <option value="<%=h location.id %>"><%=h location.name %></option> 
+      <% end %>
+    </select>
+  </p>
+  <p>
+  2.) <%= f.submit 'Click me to generate' %> 
+  </p>
+<%=h @place.name  %> 
+<% end %>
