@@ -1,8 +1,10 @@
-class PlacesController < ApplicationController
+class SearchesController < ApplicationController
   def index
     @location = Location.all
-
-    @search = Search.first(:order => 'random()',:conditions => ["location_id = ?", params[:location]])
-
+    
+    
+    @search = Search.new
+    @search.find_venue(params[:location])
+    
   end
 end
