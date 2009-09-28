@@ -1,0 +1,26 @@
+<h1>Listing venues</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Map url</th>
+    <th>Comments</th>
+    <th>Location</th>
+  </tr>
+
+<% @venues.each do |venue| %>
+  <tr>
+    <td><%=h venue.name %></td>
+    <td><%=h venue.map_url %></td>
+    <td><%=h venue.comments %></td>
+    <td><%=h venue.location_id %></td>
+    <td><%= link_to 'Show', venue %></td>
+    <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
+    <td><%= link_to 'Destroy', venue, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New venue', new_venue_path %>

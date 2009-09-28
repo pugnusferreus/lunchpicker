@@ -1,6 +1,5 @@
 <%
 if(@place.nil?) then
-puts "@place is null"
   @place = Place.new
 end
 %>
@@ -10,7 +9,7 @@ end
   <p>
     1.) Select a location
     <select id="location" name="location">
-      <option value="">Please select a location</option>
+      <option value="-1">Please select a location</option>
       <% @location.each do |location| %>
         <option value="<%=h location.id %>"><%=h location.name %></option> 
       <% end %>
