@@ -1,11 +1,11 @@
 <%
-if(@place.nil?) then
-  @place = Place.new
+if(@search.nil?) then
+  @search = Search.new
 end
 %>
-<% form_for :places, ([@location,@place]) do |f| %>   
+<% form_for :searches, ([@search]) do |f| %>   
   <h1>Lunchpicker</h1>
-  <%= f.error_messages %>
+
   <p>
     1.) Select a location
     <select id="location" name="location">
@@ -18,5 +18,5 @@ end
   <p>
   2.) <%= f.submit 'Click me to generate' %> 
   </p>
-<%=h @place.name  %> 
+<%=h @search.venue_name  %> 
 <% end %>

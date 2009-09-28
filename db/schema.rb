@@ -9,15 +9,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090925034318) do
+ActiveRecord::Schema.define(:version => 20090928090404) do
 
-  create_table "locations", :force => true do |t|
+  create_table "locations", :primary_key => "location_id", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "places", :force => true do |t|
+  create_table "places", :primary_key => "place_id", :force => true do |t|
+    t.string   "name"
+    t.string   "map_url"
+    t.text     "comments"
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "venues", :primary_key => "venue_id", :force => true do |t|
     t.string   "name"
     t.string   "map_url"
     t.text     "comments"
