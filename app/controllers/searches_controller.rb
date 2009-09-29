@@ -5,6 +5,6 @@ class SearchesController < ApplicationController
     
     @search = Search.new(params[:location])
     @search.find_venue
-     
+  
   end
 end

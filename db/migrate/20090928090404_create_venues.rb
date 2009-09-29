@@ -2,7 +2,7 @@ class CreateVenues < ActiveRecord::Migration
   def self.up
     create_table :venues do |t|
       t.string :name
-      t.string :map_url
+      t.string :address
       t.text :comments
       t.references :location
 

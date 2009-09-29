@@ -24,5 +24,11 @@ end
   <p>
   2.) <%= f.submit 'Click me to generate' %> 
   </p>
-<%=h @search.venue_name  %> 
+  <p>
+    <%=h @search.venue_name  %>
+  </p>
+  <p> 
+    <%=h @search.comments %>
+  </p>
+  <div id="map_canvas" style="width: 500px; height: 300px"></div>
 <% end %>

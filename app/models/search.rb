@@ -8,30 +8,30 @@ class Search
   end
 
   def find_venue()
-     @place = Venue.first(:order => 'random()',:conditions => ["location_id = ?", @location_id])
+     @venue = Venue.first(:order => 'random()',:conditions => ["location_id = ?", @location_id])
      @location = Location.find_by_location_id(@location_id)
   end
   
   def venue_name
-    if(!@place.nil?) then
-      @place.name
+    if(!@venue.nil?) then
+      @venue.name
     end
   end 
   
-  def venue_map_url
-    if(!@place.nil?) then
-      @place.map_url
+  def venue_address
+    if(!@venue.nil?) then
+      @venue.address
     end
   end
   
   def comments
-    if(!@place.nil?) then
-      @place.comments
+    if(!@venue.nil?) then
+      @venue.comments
     end
   end
   
   def location_name
-    if(!@place.nil?) then
+    if(!@location.nil?) then
       @location.name
     end
   end
