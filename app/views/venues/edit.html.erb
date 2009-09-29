@@ -17,7 +17,18 @@
   </p>
   <p>
     <%= f.label :location_id %><br />
-    <%= f.text_field :location_id %>
+    <select id="venue_location_id" name="venue[location_id]">
+      <option value="-1">Please select a location</option>
+      <% @location.each do |location| %>
+        <%
+          is_selected = ""
+          if(location.id == @venue.location_id) then
+            is_selected = "selected"
+          end
+        %>
+        <option <%= is_selected %>  value="<%=h location.id %>"><%=h location.name %></option>
+      <% end %>
+    </select>
   </p>
   <p>
     <%= f.submit 'Update' %>
