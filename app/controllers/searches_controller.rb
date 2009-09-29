@@ -3,8 +3,8 @@ class SearchesController < ApplicationController
     @location = Location.all
     
     
-    @search = Search.new
-    @search.find_venue(params[:location])
-    
+    @search = Search.new(params[:location])
+    @search.find_venue
+     
   end
 end

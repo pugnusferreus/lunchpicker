@@ -11,7 +11,13 @@ end
     <select id="location" name="location">
       <option value="-1">Please select a location</option>
       <% @location.each do |location| %>
-        <option value="<%=h location.id %>"><%=h location.name %></option> 
+        <%
+          is_selected = ""
+          if(@search.location_id.eql?("#{location.location_id}")) then
+            is_selected = "selected"
+          end
+        %>
+        <option <%= is_selected %> value="<%=h location.id %>"><%=h location.name %></option> 
       <% end %>
     </select>
   </p>
