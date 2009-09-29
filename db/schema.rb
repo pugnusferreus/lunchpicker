@@ -17,18 +17,9 @@ ActiveRecord::Schema.define(:version => 20090928090404) do
     t.datetime "updated_at"
   end
 
-  create_table "places", :primary_key => "place_id", :force => true do |t|
-    t.string   "name"
-    t.string   "map_url"
-    t.text     "comments"
-    t.integer  "location_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "venues", :primary_key => "venue_id", :force => true do |t|
     t.string   "name"
-    t.string   "map_url"
+    t.string   "address"
     t.text     "comments"
     t.integer  "location_id"
     t.datetime "created_at"
