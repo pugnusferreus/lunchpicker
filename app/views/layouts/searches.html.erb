@@ -12,9 +12,9 @@
     function initialize()
     {
       <%
-      if(!@search.nil?) then
+      if(!@search.nil? && !@search.venue_address.nil?) then
       %>
-        initMap('<%= @search.venue_address %>','map_canvas');
+        initMap('<%= @search.venue_address.to_json %>','map_canvas');
       <%
       end
       %>
