@@ -6,46 +6,19 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Lunch Picker</title>
   <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAD3guJbG5cT8WfO7vt9ClXhT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSQHgp1aR-x-tXoC8woO7zH5yBT-g" type="text/javascript"></script>
- 
+  <script src="/javascripts/google_map.js"></script> 
 <%= stylesheet_link_tag 'scaffold' %>
   <script type="text/javascript">
-    var map = null;
-    var geocoder = null;
-
-    function initialize() {
-      if (GBrowserIsCompatible()) {
-        map = new GMap2(document.getElementById("map_canvas"));
-        geocoder = new GClientGeocoder();
-        var customUI = map.getDefaultUI();
-        customUI.maptypes.hybrid = false;
-        map.setUI(customUI);
-
-      }
+    function initialize()
+    {
       <%
       if(!@search.nil?) then
       %>
-        showAddress('<%= @search.venue_address %>');
+        initMap('<%= @search.venue_address %>','map_canvas');
       <%
       end
-%>
+      %>
     }
-
-    function showAddress(address) {
-      if (geocoder) {
-        geocoder.getLatLng(
-          address,
-          function(point) {
-            if (point) {
-              map.setCenter(point, 13);
-              var marker = new GMarker(point);
-              map.addOverlay(marker);
-              marker.openInfoWindowHtml(address);
-            }
-          }
-        );
-      }
-    }
-
   </script>
 </head>
 <body onload="initialize()">
