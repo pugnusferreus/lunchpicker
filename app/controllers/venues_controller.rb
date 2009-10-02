@@ -25,7 +25,6 @@ class VenuesController < ApplicationController
   # GET /venues/new.xml
   def new
     @venue = Venue.new
-    @location = Location.all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @venue }
@@ -34,7 +33,6 @@ class VenuesController < ApplicationController
 
   # GET /venues/1/edit
   def edit
-    @location = Location.all
     @venue = Venue.find(params[:id])
   end
 

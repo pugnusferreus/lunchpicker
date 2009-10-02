@@ -1,10 +1,7 @@
 class SearchesController < ApplicationController
   def index
-    @location = Location.all
     
-    
-    @search = Search.new(params[:location])
-    @search.find_venue
-  
+    @search = Search.new
+    @search.find_venue(params[:location_id])
   end
 end

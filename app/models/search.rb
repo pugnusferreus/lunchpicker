@@ -1,42 +1,25 @@
-class Search
+class Search 
+  include Validatable
 
-  def initialize(location_id)
-    @location_id = location_id
-    if(@location_id.nil?) then
-      @location_id = "-1"
-    end
-  end
+  validates_presence_of :location_id
 
-  def find_venue()
-     @venue = Venue.first(:order => 'random()',:conditions => ["location_id = ?", @location_id])
-     @location = Location.find_by_location_id(@location_id)
-  end
-  
-  def venue_name
-    if(!@venue.nil?) then
-      @venue.name
-    end
-  end 
-  
-  def venue_address
-    if(!@venue.nil?) then
-      @venue.address
-    end
-  end
-  
-  def comments
-    if(!@venue.nil?) then
-      @venue.comments
-    end
-  end
-  
-  def location_name
-    if(!@location.nil?) then
-      @location.name
-    end
-  end
+  attr_accessor :location_id, :location_name, :venue_name, :venue_address, :comments
 
-  def location_id
-      @location_id
+  
+  def find_venue(loc_id)
+     @location_id = loc_id
+     if (self.valid?) then 
+       @venue = Venue.first(:order => 'random()',:conditions => ["location_id = ?", @location_id])
+     
+
+       if(!@venue.nil?) then
+         @location = Location.find_by_location_id(@location_id)
+         @location_name = @location.name
+         @venue_name = @venue.name
+         @venue_address = @venue.address
+         @comments = @venue.comments
+         @location_id = loc_id
+       end
+    end
   end
 end
