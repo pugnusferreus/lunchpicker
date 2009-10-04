@@ -1,27 +1,17 @@
-#sidebar
-  %h3
-    Maintenance
-    
+- form_for :searches, ([@search]) do |f|
+  = error_messages_for_attribute(@search, :location_id, "Location" )
+
   %p
-    = link_to 'Venues', :controller => 'venues', :action => 'index'
-  %p
-    = link_to 'Locations', :controller => 'locations', :action=> 'index'
-  
-#text
-  - form_for :searches, ([@search]) do |f|
-    = error_messages_for_attribute(@search, :location_id, "Location" )
-  
-    %p
-      %label{ :for => 'location_id' } 1.) Select a location
-      %select#location_id{ :name => "location_id" }
-        %option{ :value => "" }
-          Please select a location
+    %label{ :for => 'location_id' } 1.) Select a location
+    %select#location_id{ :name => "location_id" }
+      %option{ :value => "" }
+        Please select a location
         - Location.all.each do |location|
           %option{ :value => location.id, :selected => location.id == @search.location_id.to_i }
             = h location.name
-    %p
-      %label 2.)
-      = f.submit 'Where should I have lunch?'
+  %p
+    %label 2.)
+    = f.submit 'Where should I have lunch?'
 
   %p= h @search.venue_name
   %p= h @search.comments
