@@ -18,6 +18,9 @@
   <%=h @venue.location_name %>
 </p>
 
+<%= map_canvas("map_canvas", @venue.address) %>
 
-<%= link_to 'Edit', edit_venue_path(@venue) %> |
-<%= link_to 'Back', venues_path %>
+<p>
+  <%= link_to 'Edit', edit_venue_path(@venue) %> |
+  <%= link_to 'Back', venues_path %>
+</p>
