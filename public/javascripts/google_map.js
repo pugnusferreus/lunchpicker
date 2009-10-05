@@ -47,3 +47,74 @@ function showAddress(id, address)
 	});
 	
 }
+
+
+$(function()
+{
+	
+	var address_field = $('#venue_address');
+	if (address_field)
+	{
+		
+		var btn = $('<button></button>').insertAfter(address_field);
+		var map_div = map_div = $('<div id="venue_address_map" class="map_canvas" style="display: none"></div>').insertAfter(btn);
+		
+		function resetMap()
+		{
+			btn.attr('disabled', 'disabled');
+			map_div.hide('slow', function()
+			{
+				btn.html('View');
+				btn.removeAttr('disabled');
+			});
+		}
+		
+		function mapLoaded(map, point)
+		{
+			showPoint(map_div.attr('id'), point)
+			map_div.show('slow', function()
+			{
+				map.checkResize();
+				showPoint(map_div.attr('id'), point, address_field.val());
+				btn.html('Hide');
+				btn.removeAttr('disabled');
+			});
+		}
+		
+		function loadMap()
+		{
+			
+			btn.attr('disabled', 'disabled');
+			
+			if (!geocoder)
+			{
+				geocoder = new GClientGeocoder();
+			}
+			geocoder.getLatLng(address_field.val(), function(point)
+			{
+				var map = getMap(map_div.attr('id'));
+				mapLoaded(map, point);
+			});
+			
+		}
+		
+		btn.click(function(e)
+		{
+			e.preventDefault();
+			
+			if (btn.html() == 'View')
+			{
+				loadMap();
+			}
+			else
+			{
+				resetMap();
+			}
+		});
+		
+		address_field.keypress(resetMap);
+		resetMap();
+		
+	}
+	
+});
