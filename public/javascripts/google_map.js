@@ -1,23 +1,22 @@
 var map = null;
 var geocoder = null;
 
-function initMap(address,map_canvas_id) 
+function initMap(id) 
 {
     if (GBrowserIsCompatible()) 
     {
-        map = new GMap2(document.getElementById(map_canvas_id));
+        map = new GMap2(document.getElementById(id));
         geocoder = new GClientGeocoder();
         var customUI = map.getDefaultUI();
         customUI.maptypes.hybrid = false;
         map.setUI(customUI);
     }
       
-    showAddress(address);
-    
 }
 
-function showAddress(address) 
+function showAddress(id, address)
 {
+	initMap(id)
     if (geocoder) 
     {
         geocoder.getLatLng(address,

@@ -16,7 +16,7 @@ module ApplicationHelper
       <script type='text/javascript'>
         $(function()
         {
-          initMap(#{address.to_json}, #{id.to_json});
+          showAddress(#{id.to_json}, #{address.to_json});
         });
       </script>
     HTML
