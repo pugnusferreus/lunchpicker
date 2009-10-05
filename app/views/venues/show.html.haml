@@ -1,0 +1,19 @@
+%p
+  %strong Name:
+  = h @venue.name
+%p
+  %strong Address:
+  = h @venue.address
+%p
+  %strong Comments:
+  = h @venue.comments
+%p
+  %strong Location:
+  = h @venue.location_name
+
+= map_canvas("map_canvas", @venue.address)
+
+%p
+  = link_to 'Edit', edit_venue_path(@venue)
+  |
+  = link_to 'Back', venues_path

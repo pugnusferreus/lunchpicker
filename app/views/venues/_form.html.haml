@@ -1,0 +1,24 @@
+%p
+  = form.label :name
+  %br
+  = form.text_field :name
+
+%p
+  = form.label :address
+  %br
+  = form.text_field :address
+
+%p
+  = form.label :comments
+  %br
+  = form.text_area :comments
+
+%p
+  = form.label :location_id
+  %br
+  %select#venue_location_id{ :name => "venue[location_id]" }
+    %option{ :value => "" }
+      Please select a location
+      - Location.all.each do |location|
+        %option{ :value => location.id, :selected => location.id == @venue.location_id }
+          = h location.name
