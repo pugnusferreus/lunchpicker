@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+  layout 'default'
   # GET /venues
   # GET /venues.xml
   def index

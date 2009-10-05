@@ -31,8 +31,7 @@
     <input type="button" name="search_location" id="search_location" value="Search" onclick="showAddress(document.getElementById('venue_address').value);"/>
 
   </p>
-  <div id="map_canvas" style="width: 500px; height: 300px"></div>
-
+  <%= generate_map_canvas("map_canvas","") %>
   <p>
     <%= f.submit 'Create' %>
   </p>

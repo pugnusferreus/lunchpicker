@@ -10,11 +10,17 @@ module ApplicationHelper
     end
   end
 
-  def generate_map_canvas(location)
-    if(!location.nil?) then
-      return <<EOF
-      lawl
-      EOF
+  def generate_map_canvas(id,address)
+    if(!address.nil? && !id.nil? && id != "") then
+      html = <<EOF
+      <div id='#{id}' class='map_canvas' />
+      <script type='text/javascript'>
+        $(function()
+        {
+          initMap('#{address}','#{id}');
+        });
+      </script>
+EOF
     end
   end
 

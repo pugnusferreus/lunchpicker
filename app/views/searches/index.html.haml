@@ -15,9 +15,4 @@
 
   %p= h @search.venue_name
   %p= h @search.comments
-  #map_canvas{ :style => "width: 500px; height: 300px" }
-  :javascript
-    $(function()
-    {
-      initMap('#{@search.venue_address}', 'map_canvas');
-    });
+  = generate_map_canvas("map_canvas",@search.venue_address) 
