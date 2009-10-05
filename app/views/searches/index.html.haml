@@ -6,9 +6,9 @@
     %select#location_id{ :name => "location_id" }
       %option{ :value => "" }
         Please select a location
-        - Location.all.each do |location|
-          %option{ :value => location.id, :selected => location.id == @search.location_id.to_i }
-            = h location.name
+      - Location.all.each do |location|
+        %option{ :value => location.id, :selected => location.id == @search.location_id.to_i }
+          = h location.name
   %p
     %label 2.)
     = f.submit 'Where should I have lunch?'
