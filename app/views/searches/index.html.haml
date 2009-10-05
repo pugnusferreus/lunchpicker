@@ -15,4 +15,4 @@
 
   %p= h @search.venue_name
   %p= h @search.comments
-  = generate_map_canvas("map_canvas",@search.venue_address) 
+  = map_canvas("map_canvas", @search.venue_address)
