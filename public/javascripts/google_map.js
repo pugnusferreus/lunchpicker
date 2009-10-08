@@ -51,7 +51,6 @@ function showAddress(id, address)
 
 $(function()
 {
-	
 	var address_field = $('#venue_address');
 	if (address_field)
 	{

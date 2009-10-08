@@ -3,11 +3,17 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.xml
   def index
-    @locations = Location.all
+    puts params[:type]
+    puts "@@@@@@@@@@@"
+    if(!params[:type].nil? && params[:type] == "weather_info") then
+      weather_info
+    else
+      @locations = Location.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @locations }
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @locations }
+      end
     end
   end
 
@@ -81,6 +87,34 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(locations_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def weather_info
+    weather_location = params[:loc].to_json
+    puts "###########"
+    puts weather_location
+    @google_weather = GoogleWeather.new(weather_location)
+    has_data = @google_weather.weather
+ 
+    if(has_data.key? 'current_conditions') then
+      info = <<-HTML
+      <p>
+        Condition : #{@google_weather.current_conditions.condition}
+      </p>
+      <p>
+        Temperature (Celcius) : #{@google_weather.current_conditions.temp_c}
+      </p>
+      <p>
+        Wind Condition : #{@google_weather.current_conditions.wind_condition}
+      </p>
+      <p>
+        Humidity : #{@google_weather.current_conditions.humidity}
+      </p>
+      HTML
+      render :text => info
+    else
+      render :text => "<p>Cannot find weather information for #{params[:loc]}</p>"
     end
   end
 end

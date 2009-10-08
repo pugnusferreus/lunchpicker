@@ -1,0 +1,14 @@
+%h1
+  Editing Location
+
+- form_for(@location) do |f|
+  = f.error_messages
+  = render :partial => "form", :object => f
+
+  %p
+    = f.submit 'Update'
+
+%p
+  = link_to 'Show', @location
+  |
+  = link_to 'Back', locations_path

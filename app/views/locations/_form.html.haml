@@ -1,0 +1,17 @@
+= weather_info
+%p
+  = form.label :name
+  %br
+  = form.text_field :name
+
+%p
+  = form.label :weather_location
+  %br
+  = form.text_field :weather_location
+  %input{:type=> "button",:id=> "weather_info_but",:value=>"Check Weather"}
+  %div{:id => "weather_info_div", :style => "display:none"}
+
+  %div{:id => "loading_bar_div", :style => "display:none"}
+    %img{:src => "/images/loading.gif",:alt => "loading..."}
+
+  

@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20090928090404) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "weather_location", :limit => 100
   end
 
   create_table "venues", :primary_key => "venue_id", :force => true do |t|

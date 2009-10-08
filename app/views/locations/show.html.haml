@@ -1,0 +1,20 @@
+= weather_info
+%p
+  %strong Name:
+  = h @location.name
+%p
+  %strong Weather Location:
+  = h @location.weather_location
+  %input{:type=>"hidden",:id=>"location_weather_location",:value=>"#{@location.weather_location}"}
+  
+  %input{:type=> "button",:id=> "weather_info_but",:value=>"Check Weather"}
+
+%div{:id => "loading_bar_div", :style => "display:none"}
+  %img{:src => "/images/loading.gif",:alt => "loading..."}
+
+%div{:id => "weather_info_div", :style => "display:none"}
+
+%p
+  = link_to 'Edit', edit_location_path(@location)
+  |
+  = link_to 'Back', locations_path
