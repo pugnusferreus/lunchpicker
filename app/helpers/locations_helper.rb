@@ -8,7 +8,7 @@ module LocationsHelper
            $('#weather_info_div').hide();
            var loc = $('#location_weather_location').val();
            
-           $.ajax({url:'/locations',dataType: 'html', data: {'type':'weather_info','loc': loc},type:'get',success: function(html) {
+           $.ajax({url:'/locations/weather_info/1',dataType: 'html', data: {'loc': loc},type:'get',success: function(html) {
              $("#weather_info_div").html(html);  
              $("#weather_info_div").show();
              $("#loading_bar_div").hide();

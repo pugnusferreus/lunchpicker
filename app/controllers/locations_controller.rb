@@ -3,17 +3,11 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.xml
   def index
-    puts params[:type]
-    puts "@@@@@@@@@@@"
-    if(!params[:type].nil? && params[:type] == "weather_info") then
-      weather_info
-    else
-      @locations = Location.all
+    @locations = Location.all
 
-      respond_to do |format|
-        format.html # index.html.erb
-        format.xml  { render :xml => @locations }
-      end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @locations }
     end
   end
 
@@ -92,8 +86,6 @@ class LocationsController < ApplicationController
 
   def weather_info
     weather_location = params[:loc].to_json
-    puts "###########"
-    puts weather_location
     @google_weather = GoogleWeather.new(weather_location)
     has_data = @google_weather.weather
  
