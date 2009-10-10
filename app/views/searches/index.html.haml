@@ -3,7 +3,7 @@
 
   %p
     %label{ :for => 'location_id' } 1.) Select a location
-    %select#location_id{ :name => "location_id" }
+    %select#location_id{ :name => "location_id",:id=>"location_id" }
       %option{ :value => "" }
         Please select a location
       - Location.all.each do |location|

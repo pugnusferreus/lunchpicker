@@ -1,21 +1,26 @@
 %h1
   Listing venues
 
-%table
-  
+%p
+   
+  %select#location_id{ :name => "location_id" }
+    %option{ :value => "" }
+      All
+    - Location.all.each do |location|
+      %option{ :value => location.id ,:selected => location.id == @loc_id.to_i}
+        = h location.name
+        
+  %input{:type=> "button",:value=> "Search",:id=>"search"}
+  = venue_search
+%table{:class=>'data_table'}
   %thead
     %tr
-      %th Name
-      %th Address
-      %th Comments
-      %th Location
-  
+    %th Name
+    %th Address
   %tbody
     - @venues.each do |venue|
       %tr
         %td= h venue.name
-        %td= h venue.address
-        %td= h venue.comments
         %td= h venue.location_name
         %td= link_to 'Show', venue
         %td= link_to 'Edit', edit_venue_path(venue)

@@ -4,11 +4,21 @@ class VenuesController < ApplicationController
   # GET /venues.xml
   def index
     #@venues = Venue.all
-    @venues = Venue.find(:all,:include=>[:location])
+    @loc_id = params[:location_id]
+    
+    if (@loc_id.nil?) 
+      @venues = Venue.find(:all,:conditions => ["location_id = null"])
+    elsif (@loc_id == "")
+      @venues = Venue.find(:all,:include=>[:location])
+    else
+      @venues = Venue.find(:all,:include=>[:location],:conditions=>{:location_id => @loc_id})
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @venues }
     end
+     
   end
 
   # GET /venues/1
