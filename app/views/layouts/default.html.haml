@@ -13,7 +13,8 @@
     #container
 
       #header_menu
-        = link_to 'Lunch Picker', :controller => "searches",:action => 'index'
+        = link_to image_tag("/images/LunchPickerLogo.png", :border=>0), :controller => "searches",:action => 'index'
+        
       #main      
         %p{ :style => "color: green" }
         = flash[:notice]
