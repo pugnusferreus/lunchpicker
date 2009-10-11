@@ -1,7 +1,7 @@
 class Venues < ActiveRecord::Migration
   def self.up
     change_table :venues do |t|
-      t.string :sheltered, :default => false
+      t.boolean :sheltered, :default => false
     end
     
   end
