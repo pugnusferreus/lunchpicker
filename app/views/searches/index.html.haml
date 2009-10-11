@@ -11,7 +11,7 @@
           = h location.name
           
   %p
-    %label 2.) Put weather into consideration?
+    %label{ :for => 'sheltered' } 2.) Put weather into consideration?
     %input{:type=>"checkbox",:id=>"sheltered",:name=>"sheltered",:value=> "true",:checked=>@search.sheltered}
     
   %p
