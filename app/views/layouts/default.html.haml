@@ -12,8 +12,8 @@
   %body
     #container
 
-      #header_menu
-        = link_to image_tag("/images/LunchPickerLogo.png", :border=>0), :controller => "searches",:action => 'index'
+      %h1#header_menu
+        = link_to image_tag("/images/LunchPickerLogo.png", :alt=>'Lunch Picker', :size=>'320x50'), root_path
         
       #main      
         %p{ :style => "color: green" }
