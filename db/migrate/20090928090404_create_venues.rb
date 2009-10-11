@@ -5,7 +5,7 @@ class CreateVenues < ActiveRecord::Migration
       t.string :address
       t.text :comments
       t.references :location
-
+      t.boolean :sheltered, :default => false
       t.timestamps
     end
   end

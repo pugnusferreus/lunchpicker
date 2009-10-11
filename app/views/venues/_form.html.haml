@@ -22,3 +22,8 @@
     - Location.all.each do |location|
       %option{ :value => location.id, :selected => location.id == @venue.location_id }
         = h location.name
+
+%p
+  = form.label :sheltered
+  %br
+  %input{:type=>"checkbox",:id=>"sheltered",:name=>"venue[sheltered]",:value=> "true",:checked=>@venue.sheltered}

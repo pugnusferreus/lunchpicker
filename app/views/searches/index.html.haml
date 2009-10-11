@@ -9,8 +9,13 @@
       - Location.all.each do |location|
         %option{ :value => location.id, :selected => location.id == @search.location_id.to_i }
           = h location.name
+          
   %p
-    %label 2.)
+    %label 2.) Put weather into consideration?
+    %input{:type=>"checkbox",:id=>"sheltered",:name=>"sheltered",:value=> "true",:checked=>@search.sheltered}
+    
+  %p
+    %label 3.)
     = f.submit 'Where should I have lunch?'
 
 - if @search.venue_name

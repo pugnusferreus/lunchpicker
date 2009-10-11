@@ -14,6 +14,10 @@
 = map_canvas("map_canvas", @venue.address)
 
 %p
+  %strong Is Sheltered:
+  = h @venue.sheltered_name
+  
+%p
   = link_to 'Edit', edit_venue_path(@venue)
   |
   = link_to 'Back', venues_path

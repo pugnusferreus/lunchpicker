@@ -16,12 +16,14 @@
   %thead
     %tr
     %th Name
-    %th Address
+    %th Venue Location
+    %th Sheltered?
   %tbody
     - @venues.each do |venue|
       %tr
         %td= h venue.name
         %td= h venue.location_name
+        %td= h venue.sheltered_name
         %td= link_to 'Show', venue
         %td= link_to 'Edit', edit_venue_path(venue)
         %td= link_to 'Destroy', venue, :confirm => 'Are you sure?', :method => :delete
