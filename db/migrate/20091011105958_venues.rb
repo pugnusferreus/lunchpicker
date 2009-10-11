@@ -1,16 +1,12 @@
 class Venues < ActiveRecord::Migration
   def self.up
-    create_table :venues do |t|
-      t.string :name
-      t.string :address
-      t.text :comments
-      t.references :location
-      t.boolean :sheltered, :default => false
-      t.timestamps
+    change_table :venues do |t|
+      t.string :sheltered, :default => false
     end
+    
   end
 
   def self.down
-    drop_table :venues
+    remove_column :venues, :sheltered
   end
 end
