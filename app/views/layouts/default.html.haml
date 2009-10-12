@@ -15,9 +15,7 @@
       %h1#header_menu
         = link_to image_tag("/images/LunchPickerLogo.png", :alt=>'Lunch Picker', :size=>'320x50'), root_path
         
-      #main      
-        %p{ :style => "color: green" }
-        = flash[:notice]
+      #main
       
         #sidebar
           %h3
@@ -28,6 +26,11 @@
           %p
             = link_to 'Locations', locations_path
         #text
+          
+          - [:notice, :warning, :message].each do |key|
+            - unless flash[key].blank?
+              %p.flash{:class => key.to_s}= flash[key]
+          
           = yield
         
       #footer_menu
