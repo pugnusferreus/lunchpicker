@@ -3,7 +3,7 @@ class Search
   
   validates_presence_of :location_id
 
-  attr_accessor :location_id, :location_name, :venue_name, :venue_address, :comments, :sheltered, :weather_condition, :weather_temp_c, :weather_wind_condition, :weather_humidity
+  attr_accessor :location_id, :location_name, :venue_name, :venue_address, :comments, :sheltered, :weather_condition, :weather_temp_c, :weather_wind_condition, :weather_humidity, :weather_icon
   
   def find_venue(loc_id,check_weather)
      @location_id = loc_id
@@ -49,6 +49,7 @@ class Search
           @weather_temp_c = google_weather.current_conditions.temp_c
           @weather_wind_condition = google_weather.current_conditions.wind_condition
           @weather_humidity = google_weather.current_conditions.humidity
+          @weather_icon = "http://www.google.com" + google_weather.current_conditions.icon
 
         end
       end

@@ -19,7 +19,9 @@
     = f.submit 'Where should I have lunch?'
 
 - if @search.venue_name
-  %h3 Current Weather Conditions
+  %h3
+    = image_tag(@search.weather_icon, :alt=>@search.weather_condition)
+    Current Weather Conditions
   %p
     %label Weather Condition :
     = h @search.weather_condition
