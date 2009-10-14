@@ -7,7 +7,7 @@
 - else
   
   %p
-    - img_path = $WEATHER_ICON_ROOT_PATH + @current_conditions.icon
+    - img_path = WEATHER_ICON_ROOT_PATH + @current_conditions.icon
     %img{:src=>img_path, :alt=>""}
     %br
     %strong Condition:
