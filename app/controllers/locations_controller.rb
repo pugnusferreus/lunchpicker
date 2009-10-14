@@ -85,30 +85,10 @@ class LocationsController < ApplicationController
   end
 
   def weather_info
-    weather_location = params[:loc].to_json
-    @google_weather = GoogleWeather.new(weather_location)
-    has_data = @google_weather.weather
- 
-    if(has_data.key? 'current_conditions') then
-      img_path = $WEATHER_ICON_ROOT_PATH + @google_weather.current_conditions.icon
-      info = <<-HTML
-      <p>
-        <img src="#{img_path}" alt="#{img_path}" />
-        Condition : #{@google_weather.current_conditions.condition}
-      </p>
-      <p>
-        Temperature (Celcius) : #{@google_weather.current_conditions.temp_c}
-      </p>
-      <p>
-        Wind Condition : #{@google_weather.current_conditions.wind_condition}
-      </p>
-      <p>
-        Humidity : #{@google_weather.current_conditions.humidity}
-      </p>
-      HTML
-      render :text => info
-    else
-      render :text => "<p>Cannot find weather information for #{params[:loc]}</p>"
-    end
+    @location_name = params[:loc]
+    @weather = GoogleWeather.new(@location_name)
+    @current_conditions = @weather.current_conditions if @weather.weather.key?('current_conditions')
+    
+    render :layout => false
   end
 end
