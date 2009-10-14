@@ -19,6 +19,23 @@
     = f.submit 'Where should I have lunch?'
 
 - if @search.venue_name
-  %p= h @search.venue_name
-  %p= h @search.comments
+  %h3 Current Weather Conditions
+  %p
+    %label Weather Condition :
+    = h @search.weather_condition
+    %br
+    %label Temperate (Celcius) :
+    = h @search.weather_temp_c
+    %br
+    %label Wind Conditions :
+    = h @search.weather_wind_condition
+    %br
+    %label Humidity :
+    = h @search.weather_humidity
+  %h3 Venue Information
+  %p
+    %label Venue Name :
+    = h @search.venue_name
+  %p
+    = h @search.comments
   = map_canvas("map_canvas", @search.venue_address)
