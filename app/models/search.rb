@@ -49,7 +49,7 @@ class Search
           @weather_temp_c = google_weather.current_conditions.temp_c
           @weather_wind_condition = google_weather.current_conditions.wind_condition
           @weather_humidity = google_weather.current_conditions.humidity
-          @weather_icon = "http://www.google.com" + google_weather.current_conditions.icon
+          @weather_icon = $WEATHER_ICON_ROOT_PATH + google_weather.current_conditions.icon
 
         end
       end

@@ -12,6 +12,9 @@ $GOOGLE_MAP_KEY = 'ABQIAAAAD3guJbG5cT8WfO7vt9ClXhT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSQH
 #all possible values from google weather that needs to go to a place with shelter
 $NEED_SHELTER_WEATHERS = Array["storm","thunderstorm","snow"]
 
+#weather icon image root path
+$WEATHER_ICON_ROOT_PATH = "http://www.google.com"
+
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers

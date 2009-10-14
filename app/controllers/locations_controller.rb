@@ -90,8 +90,10 @@ class LocationsController < ApplicationController
     has_data = @google_weather.weather
  
     if(has_data.key? 'current_conditions') then
+      img_path = $WEATHER_ICON_ROOT_PATH + @google_weather.current_conditions.icon
       info = <<-HTML
       <p>
+        <img src="#{img_path}" alt="#{img_path}" />
         Condition : #{@google_weather.current_conditions.condition}
       </p>
       <p>
