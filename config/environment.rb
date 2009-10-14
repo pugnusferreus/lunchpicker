@@ -7,13 +7,13 @@ RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 #Google maps key
-$GOOGLE_MAP_KEY = 'ABQIAAAAD3guJbG5cT8WfO7vt9ClXhT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSQHgp1aR-x-tXoC8woO7zH5yBT-g' #for localhost
+GOOGLE_MAP_KEY = 'ABQIAAAAD3guJbG5cT8WfO7vt9ClXhT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSQHgp1aR-x-tXoC8woO7zH5yBT-g' #for localhost
 
 #all possible values from google weather that needs to go to a place with shelter
-$NEED_SHELTER_WEATHERS = Array["storm","thunderstorm","snow"]
+NEED_SHELTER_WEATHERS = Array["storm","thunderstorm","snow"]
 
 #weather icon image root path
-$WEATHER_ICON_ROOT_PATH = "http://www.google.com"
+WEATHER_ICON_ROOT_PATH = "http://www.google.com"
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
@@ -53,4 +53,5 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
   config.active_record.primary_key_prefix_type = :table_name_with_underscore
+  config.active_record.schema_format = :sql
 end

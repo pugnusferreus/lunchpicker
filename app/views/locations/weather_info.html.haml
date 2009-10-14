@@ -1,0 +1,23 @@
+- if not @current_conditions
+  
+  %p
+    Cannot find weather information for
+    %em= h @location_name
+  
+- else
+  
+  %p
+    - img_path = WEATHER_ICON_ROOT_PATH + @current_conditions.icon
+    %img{:src=>img_path, :alt=>""}
+    %br
+    %strong Condition:
+    = h @current_conditions.condition
+  %p
+    %strong Temp:
+    = h @current_conditions.temp_c + '°C'
+  %p
+    %strong Wind:
+    = h @current_conditions.wind_condition.sub /Wind: /, ''
+  %p
+    %strong Humidity:
+    = h @current_conditions.humidity.sub /Humidity: /, ''
