@@ -1,21 +1,16 @@
-- form_for :searches, ([@search]) do |f|
+- form_for :search, @search do |f|
   = f.error_messages
-
+  
   %p
-    %label{ :for => 'location_id' } 1.) Select a location
-    %select#location_id{ :name => "location_id",:id=>"location_id" }
-      %option{ :value => "" }
-        Please select a location
-      - Location.all.each do |location|
-        %option{ :value => location.id, :selected => location.id == @search.location_id.to_i }
-          = h location.name
-          
+    = f.label :location_id, '1.) Select a location'
+    = collection_select(:search, :location_id, Location.all, :location_id, :name, {:prompt => "Please select a location"})
+  
   %p
-    %label{ :for => 'sheltered' } 2.) Put weather into consideration?
-    %input{:type=>"checkbox",:id=>"sheltered",:name=>"sheltered",:value=> "true",:checked=>@search.sheltered}
-    
+    = f.label :sheltered, '2.) Put weather into consideration?'
+    = f.check_box :sheltered
+  
   %p
-    %label 3.)
+    = f.label :submit, '3.)'
     = f.submit 'Where should I have lunch?'
 
 - if @search.venue_name

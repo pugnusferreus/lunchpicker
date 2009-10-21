@@ -3,6 +3,6 @@ class SearchesController < ApplicationController
   
   def index
     @search = Search.new
-    @search.find_venue(params[:location_id],params[:sheltered]) if request.post?
+    @search.find_venue(params[:search][:location_id], params[:search][:sheltered]) if request.post?
   end
 end
