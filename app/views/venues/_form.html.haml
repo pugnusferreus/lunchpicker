@@ -16,12 +16,7 @@
 %p
   = form.label :location_id
   %br
-  %select#venue_location_id{ :name => "venue[location_id]" }
-    %option{ :value => "" }
-      Please select a location
-    - Location.all.each do |location|
-      %option{ :value => location.id, :selected => location.id == @venue.location_id }
-        = h location.name
+  = collection_select(:venue, :location_id, Location.all, :location_id, :name, {:prompt => "Please select a location"})
 
 %p
   = form.label :sheltered
