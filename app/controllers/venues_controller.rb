@@ -3,7 +3,11 @@ class VenuesController < ApplicationController
   # GET /venues
   # GET /venues.xml
   def index
-    #@venues = Venue.all
+    if !check_session
+      redirect_to root_path
+      return
+    end
+    
     @loc_id = params[:location_id]
     
     if (@loc_id.nil?) 
@@ -16,7 +20,7 @@ class VenuesController < ApplicationController
     
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @venues }
+     format.xml  { render :xml => @venues }
     end
      
   end
@@ -24,6 +28,10 @@ class VenuesController < ApplicationController
   # GET /venues/1
   # GET /venues/1.xml
   def show
+    if !check_session
+      redirect_to root_path
+      return
+    end
     @venue = Venue.find(params[:id])
 
     respond_to do |format|
@@ -35,6 +43,10 @@ class VenuesController < ApplicationController
   # GET /venues/new
   # GET /venues/new.xml
   def new
+    if !check_session
+      redirect_to root_path
+      return
+    end
     @venue = Venue.new
     respond_to do |format|
       format.html # new.html.erb
@@ -44,12 +56,20 @@ class VenuesController < ApplicationController
 
   # GET /venues/1/edit
   def edit
+    if !check_session
+      redirect_to root_path
+      return
+    end
     @venue = Venue.find(params[:id])
   end
 
   # POST /venues
   # POST /venues.xml
   def create
+    if !check_session
+      redirect_to root_path
+      return
+    end 
     @venue = Venue.new(params[:venue])
 
     respond_to do |format|
@@ -67,6 +87,10 @@ class VenuesController < ApplicationController
   # PUT /venues/1
   # PUT /venues/1.xml
   def update
+    if !check_session
+      redirect_to root_path
+      return
+    end
     @venue = Venue.find(params[:id])
 
     respond_to do |format|
@@ -84,12 +108,27 @@ class VenuesController < ApplicationController
   # DELETE /venues/1
   # DELETE /venues/1.xml
   def destroy
+    if !check_session
+      redirect_to root_path
+      return
+    end
+    
     @venue = Venue.find(params[:id])
     @venue.destroy
-
+    redirect_to(venues_url)
+    
     respond_to do |format|
       format.html { redirect_to(venues_url) }
       format.xml  { head :ok }
     end
   end
+  
+  def check_session
+    if current_user.nil?
+      return false
+    else
+      return true
+    end
+  end
+  
 end

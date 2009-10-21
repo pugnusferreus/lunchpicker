@@ -16,15 +16,19 @@
         = link_to image_tag("/images/LunchPickerLogo.png", :alt=>'Lunch Picker', :size=>'320x50'), root_path
         
       #main
-      
+        
         #sidebar
-          %h3
-            Maintenance
+          - if (!current_user.nil?)
+            %h3
+              Maintenance
     
-          %p
-            = link_to 'Venues', venues_path
-          %p
-            = link_to 'Locations', locations_path
+            %p
+              = link_to 'Venues', venues_path
+            %p
+              = link_to 'Locations', locations_path
+              
+            %p
+              = link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?"
         #text
           
           - [:notice, :warning, :message].each do |key|

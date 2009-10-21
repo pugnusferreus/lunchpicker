@@ -10,7 +10,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 GOOGLE_MAP_KEY = 'ABQIAAAAD3guJbG5cT8WfO7vt9ClXhT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSQHgp1aR-x-tXoC8woO7zH5yBT-g' #for localhost
 
 #all possible values from google weather that needs to go to a place with shelter
-NEED_SHELTER_WEATHERS = Array["storm","thunderstorm","snow"]
+NEED_SHELTER_WEATHERS = Array["storm","thunderstorm","snow","rain"]
 
 #weather icon image root path
 WEATHER_ICON_ROOT_PATH = "http://www.google.com"

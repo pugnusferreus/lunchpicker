@@ -3,6 +3,10 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.xml
   def index
+    if !check_session
+      redirect_to root_path
+      return
+    end
     @locations = Location.all
 
     respond_to do |format|
@@ -14,6 +18,10 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.xml
   def show
+    if !check_session
+      redirect_to root_path
+      return
+    end
     @location = Location.find(params[:id])
 
     respond_to do |format|
@@ -25,6 +33,10 @@ class LocationsController < ApplicationController
   # GET /locations/new
   # GET /locations/new.xml
   def new
+    if !check_session
+      redirect_to root_path
+      return
+    end
     @location = Location.new
 
     respond_to do |format|
@@ -35,12 +47,20 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
+    if !check_session
+      redirect_to root_path
+      return
+    end
     @location = Location.find(params[:id])
   end
 
   # POST /locations
   # POST /locations.xml
   def create
+    if !check_session
+      redirect_to root_path
+      return
+    end
     @location = Location.new(params[:location])
 
     respond_to do |format|
@@ -58,6 +78,10 @@ class LocationsController < ApplicationController
   # PUT /locations/1
   # PUT /locations/1.xml
   def update
+    if !check_session
+      redirect_to root_path
+      return
+    end
     @location = Location.find(params[:id])
 
     respond_to do |format|
@@ -75,6 +99,10 @@ class LocationsController < ApplicationController
   # DELETE /locations/1
   # DELETE /locations/1.xml
   def destroy
+    if !check_session
+      redirect_to root_path
+      return
+    end
     @location = Location.find(params[:id])
     @location.destroy
 
@@ -90,5 +118,13 @@ class LocationsController < ApplicationController
     @current_conditions = @weather.current_conditions if @weather.weather.key?('current_conditions')
     
     render :layout => false
+  end
+  
+  def check_session
+    if current_user.nil?
+      return false
+    else
+      return true
+    end
   end
 end
