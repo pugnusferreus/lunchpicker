@@ -13,26 +13,28 @@
     = f.label :submit, '3.)'
     = f.submit 'Where should I have lunch?'
 
-- if @search.venue_name
-  %h3
-    = image_tag(@search.weather_icon, :alt=>@search.weather_condition)
+- if @current_conditions
+  %h2
+    = image_tag WEATHER_ICON_ROOT_PATH+@current_conditions.icon, :alt => @current_conditions.condition
     Current Weather Conditions
   %p
-    %label Weather Condition :
-    = h @search.weather_condition
-    %br
-    %label Temperate (Celcius) :
-    = h @search.weather_temp_c
-    %br
-    %label Wind Conditions :
-    = h @search.weather_wind_condition
-    %br
-    %label Humidity :
-    = h @search.weather_humidity
-  %h3 Venue Information
+    %strong Condition:
+    = h @current_conditions.condition
   %p
-    %label Venue Name :
-    = h @search.venue_name
+    %strong Temp:
+    = h @current_conditions.temp_c + '°C'
   %p
-    = h @search.comments
-  = map_canvas("map_canvas", @search.venue_address)
+    %strong Wind:
+    = h @current_conditions.wind_condition.sub /Wind: /, ''
+  %p
+    %strong Humidity:
+    = h @current_conditions.humidity.sub /Humidity: /, ''
+
+- if @venue
+  %h2 Venue Information
+  %p
+    %label Venue Name:
+    = h @venue.name
+  %p
+    = h @venue.comments
+  = map_canvas("map_canvas", @venue.address)
