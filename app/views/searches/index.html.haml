@@ -32,10 +32,11 @@
       = h @current_conditions.humidity.sub /Humidity: /, ''
 
 - if @venue
-  %h2 Venue Information
-  %p
-    %label Venue Name:
-    = h @venue.name
-  %p
-    = h @venue.comments
-  = map_canvas("map_canvas", @venue.address)
+  %section.venue
+    %h2 Venue Information
+    %p
+      %strong Venue Name:
+      = h @venue.name
+    %p
+      = h @venue.comments
+    = map_canvas("map_canvas", @venue.address)
