@@ -14,21 +14,22 @@
     = f.submit 'Where should I have lunch?'
 
 - if @current_conditions
-  %h2
-    = image_tag WEATHER_ICON_ROOT_PATH+@current_conditions.icon, :alt => @current_conditions.condition
-    Current Weather Conditions
-  %p
-    %strong Condition:
-    = h @current_conditions.condition
-  %p
-    %strong Temp:
-    = h @current_conditions.temp_c + '°C'
-  %p
-    %strong Wind:
-    = h @current_conditions.wind_condition.sub /Wind: /, ''
-  %p
-    %strong Humidity:
-    = h @current_conditions.humidity.sub /Humidity: /, ''
+  %section.current_conditions
+    %h2
+      = image_tag WEATHER_ICON_ROOT_PATH+@current_conditions.icon, :alt => @current_conditions.condition
+      Current Weather Conditions
+    %p
+      %strong Condition:
+      = h @current_conditions.condition
+    %p
+      %strong Temp:
+      = h @current_conditions.temp_c + '°C'
+    %p
+      %strong Wind:
+      = h @current_conditions.wind_condition.sub /Wind: /, ''
+    %p
+      %strong Humidity:
+      = h @current_conditions.humidity.sub /Humidity: /, ''
 
 - if @venue
   %h2 Venue Information
