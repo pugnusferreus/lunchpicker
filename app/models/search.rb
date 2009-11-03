@@ -9,7 +9,7 @@ class Search
   attr_accessor :venue, :current_conditions
   
   def find_venue(options)
-    @location_id = options[:location_id]
+    @location_id = options[:location_id].to_i
     @sheltered = ["1", true].include? options[:sheltered]
     
     return unless valid?
