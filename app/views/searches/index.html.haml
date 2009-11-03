@@ -3,7 +3,7 @@
   
   %p
     = f.label :location_id, '1.) Select a location'
-    = collection_select(:search, :location_id, Location.all.collect {|p| [ p.name, p.location_id] } {:prompt => "Please select a location"})
+    = collection_select(:search, :location_id, Location.all, :location_id, :name, {:prompt => "Please select a location"})
   %p
     = f.label :sheltered, '2.) Put weather into consideration?'
     = f.check_box :sheltered
