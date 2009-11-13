@@ -1,4 +1,8 @@
 %p
+  %strong Location:
+  = h @venue.location_name
+
+%p
   %strong Name:
   = h @venue.name
 %p
@@ -7,9 +11,6 @@
 %p
   %strong Comments:
   = h @venue.comments
-%p
-  %strong Location:
-  = h @venue.location_name
 
 = map_canvas("map_canvas", @venue.address)
 

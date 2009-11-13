@@ -1,4 +1,9 @@
 %p
+  = form.label :location_id
+  %br
+  = collection_select(:venue, :location_id, Location.all, :location_id, :name, {:prompt => "Please select a location"})
+
+%p
   = form.label :name
   %br
   = form.text_field :name
@@ -12,11 +17,6 @@
   = form.label :comments
   %br
   = form.text_area :comments
-
-%p
-  = form.label :location_id
-  %br
-  = collection_select(:venue, :location_id, Location.all, :location_id, :name, {:prompt => "Please select a location"})
 
 %p
   = form.label :sheltered
