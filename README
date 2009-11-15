@@ -1,3 +1,5 @@
+Lunchpicker is an application that randomize your venues based on the location you select. It integrates with Google Maps and Google Weather as well.
+
 Prerequisites :
   1.) Rails
   2.) Gems
