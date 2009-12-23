@@ -18,17 +18,19 @@
       #main
         
         #sidebar
+          %h3
+            Menu
           - if (!current_user.nil?)
-            %h3
-              Maintenance
-    
             %p
-              = link_to 'Locations', locations_path
+              = link_to 'Maintain Locations', locations_path
             %p
-              = link_to 'Venues', venues_path
+              = link_to 'Maintain Venues', venues_path
  
             %p
               = link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?"
+          - else
+            %p
+              = link_to "Login", "user_session/new"
         #text
           
           - [:notice, :warning, :message].each do |key|
