@@ -47,7 +47,12 @@ class VenuesController < ApplicationController
       redirect_to root_path
       return
     end
+    @loc_id = params[:location_id]
     @venue = Venue.new
+    if !(@loc_id.nil?)
+      @venue.location_id = @loc_id
+    end
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @venue }
@@ -114,11 +119,12 @@ class VenuesController < ApplicationController
     end
     
     @venue = Venue.find(params[:id])
+    @loc_id = @venue.location_id
     @venue.destroy
-    redirect_to(venues_url)
+   # redirect_to(venues_url)
     
     respond_to do |format|
-      format.html { redirect_to(venues_url) }
+      format.html { redirect_to(venues_url(:location_id => @loc_id)) }
       format.xml  { head :ok }
     end
   end

@@ -12,21 +12,23 @@
         
   %input{:type=> "button",:value=> "Search",:id=>"search"}
   = venue_search
-%table{:class=>'data_table'}
-  %thead
-    %tr
-    %th Name
-    %th Venue Location
-    %th Sheltered?
-  %tbody
-    - @venues.each do |venue|
-      %tr
-        %td= h venue.name
-        %td= h venue.location_name
-        %td= h venue.sheltered_name
-        %td= link_to 'Show', venue
-        %td= link_to 'Edit', edit_venue_path(venue)
-        %td= link_to 'Destroy', venue, :confirm => 'Are you sure?', :method => :delete
 
-%p
-  = link_to 'New venue', new_venue_path
+- if !(@loc_id.nil?)
+  %table{:class=>'data_table'}
+    %thead
+      %tr
+      %th Name
+      %th Venue Location
+      %th Sheltered?
+    %tbody
+      - @venues.each do |venue|
+        %tr
+          %td= h venue.name
+          %td= h venue.location_name
+          %td= h venue.sheltered_name
+          %td= link_to 'Show', venue
+          %td= link_to 'Edit', edit_venue_path(venue)
+          %td= link_to 'Destroy', venue, :confirm => 'Are you sure?', :method => :delete
+
+  %p
+    = link_to 'New venue', new_venue_path(:location_id => @loc_id)
