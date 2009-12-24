@@ -1,7 +1,7 @@
 %p
   = form.label :login
   %br
-  = form.text_field :login 
+  = form.text_field :login, :disabled => !form.object.new_record?
 
 %p
   = form.label :password, form.object.new_record? ? nil : "Change password"

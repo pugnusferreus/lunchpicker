@@ -25,6 +25,8 @@
               = link_to 'Maintain Locations', locations_path
             %p
               = link_to 'Maintain Venues', venues_path
+            %p
+              = link_to 'My Account', account_path 
  
             %p
               = link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?"
@@ -33,6 +35,8 @@
               = link_to "Login", user_session_path + "/new"
             %p
               = link_to "Register", users_path + "/new"
+
+          = link_to "Tutorial", tutorials_path + "/index"
         #text
           
           - [:notice, :warning, :message].each do |key|
