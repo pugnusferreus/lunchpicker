@@ -3,7 +3,7 @@
   
   %p
     = f.label :location_id, '1.) Select a location'
-    = collection_select(:search, :location_id, Location.find(:all,:order => 'name'), :location_id, :name)
+    = collection_select(:search, :location_id, Location.all, :location_id, :name)
   %p
     = f.label :sheltered, '2.) Put weather into consideration?'
     = f.check_box :sheltered

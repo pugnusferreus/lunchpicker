@@ -4,7 +4,7 @@
 %p
    
   %select#location_id{ :name => "location_id" }
-    - Location.find(:all,:order => 'name').each do |location|
+    - Location.all.each do |location|
       %option{ :value => location.id ,:selected => location.id == @loc_id.to_i}
         = h location.name
         
