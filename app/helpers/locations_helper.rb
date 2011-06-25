@@ -1,6 +1,6 @@
 module LocationsHelper
   def weather_info()
-    return <<-HTML
+    return <<-HTML.html_safe
       <script type="text/javascript" charset="utf-8">
       $(document).ready(function()
       {

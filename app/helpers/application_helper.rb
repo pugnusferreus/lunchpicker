@@ -15,7 +15,7 @@ module ApplicationHelper
   end
 
   def map_canvas(id, address)
-    return <<-HTML
+    return <<-HTML.html_safe
       <div id='#{id}' class='map_canvas' style="display:none"></div>
       <script type='text/javascript'>
         $(function()
