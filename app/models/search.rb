@@ -1,4 +1,3 @@
-require "informal"
 class Search
   include Informal::Model
   
