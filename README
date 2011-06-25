@@ -1,26 +1,23 @@
 Lunchpicker is an application that randomize your venues based on the location you select. It integrates with Google Maps and Google Weather as well.
 
 Prerequisites :
-  1.) Rails
-  2.) Gems
+  1.) RVM (https://rvm.beginrescueend.com/)
+  2.) Bundler
   3.) PostgreSQL (make sure you can login via "psql lunchpicker") after you run rake
   
 Installation :
   
-  1.) in command line, run "rake gems:install"
-  2.) Create a lunchpicker folder
-  3.) Pull the source from github
-  4.) in command line, type "rake db:create" and then "rake db:migrate"
-  5.) Open lunchpicker/config /environment.rb and change your GOOGLE_MAP_KEY. If you do not have one, please go to http://code.google.com/apis/maps/ to sign up for a new key.
-  6.) in command line, run "script/server and" you're ready to go.
+  1.) `git clone git@github.com:pugnusferreus/lunchpicker.git`
+  2.) `git checkout rails3`
+  2.) `cd lunchpicker`
+  3.) `rake db:create`
+  4.) `rake db:migrate`
+  4.) Open lunchpicker/config/environment.rb and change your GOOGLE_MAP_KEY. If you do not have one, please go to http://code.google.com/apis/maps/ to sign up for a new key.
+  5.) `rails server`
+  6.) Go to `http://localhost:3000`
 
 
-Usage :
-  1.) First, you need to create a login. In your browser, go to <APPLICATION_ROOT>/users/new and create a new account
-  2.) Then go into <APPLICATION_ROOT>/user_sessions/new and login. You should be able to see 3 extra menu items on your right.
-  3.) Go to Locations and define your location.
-  4.) After that go to Venues and define your lunch venues.
-  5.) Go back to your application root, select a location and click on the "Where should I have lunch?" button
+See http://lunch.progriff.com/tutorials for usage details.
   
   
-Copyright © 2009 Benson Lim Cheng San. See LICENSE for details.
+Copyright © 2011 Benson Lim. See LICENSE for details.
