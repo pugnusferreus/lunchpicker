@@ -1,5 +1,6 @@
+require "informal"
 class Venue < ActiveRecord::Base
-
+  includ Informal::Model
   validates_presence_of :name
   validates_presence_of :location_id
 

@@ -1,5 +1,6 @@
+require "informal"
 class Search
-  include Validatable
+  include Informal::Model
   
   attr_accessor :location_id, :sheltered
   
