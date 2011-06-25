@@ -4,7 +4,7 @@ class Search
   attr_accessor :location_id, :sheltered
   
   validates_presence_of :location_id
-  validates_presence_of :sheltered
+  validates_inclusion_of :sheltered, :in => [true, false]
   
   attr_accessor :venue, :current_conditions
   
