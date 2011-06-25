@@ -12,7 +12,7 @@ module LocationsHelper
 
           $.ajax(
             {
-              url:'/locations/weather_info/1',
+              url:'/locations/weather_info',
               dataType: 'html',
               data: {'loc': loc},
               type:'get',

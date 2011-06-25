@@ -1,7 +1,11 @@
 Lunchpicker::Application.routes.draw do 
   resources :venues
 
-  resources :locations
+  resources :locations do
+    collection do
+      get 'weather_info'
+    end
+  end
   
   resource :account, :controller => "users" 
   resources :users
