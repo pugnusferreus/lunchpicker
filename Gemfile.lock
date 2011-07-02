@@ -124,6 +124,5 @@ DEPENDENCIES
   informal
   pg
   rails (= 3.0.9)
-  rspec
   rspec-rails
   sass
