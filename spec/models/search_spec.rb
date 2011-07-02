@@ -16,21 +16,31 @@ describe Search do
     
   end
 
-  it 'should have have venues' do
-    p Venue.all
-    @search = Search.new
-    @search.find_venue :location_id => @braybrook.location_id, :sheltered => false
-    venue = @search.venue
-    p venue
+  it 'should have venues' do
+    search = Search.new
+    search.find_venue :location_id => @braybrook.location_id, :sheltered => false
+    venue = search.venue
     venue.should_not be_nil
     venue.location.name.should eq "Braybrook"
   end
 
-  #it 'should have no venues' do
-  #  search = Search.new
-  #  search.find_venue :location_id => @sunshine.location_id, :sheltered => false
-  #  venue = search.venue
-  #  p venue
-  #  venue.should be nil
-  #end
+  it 'should have no venues' do
+    search = Search.new
+    search.find_venue :location_id => @sunshine.location_id, :sheltered => false
+    venue = search.venue
+    venue.should be nil
+  end
+
+  it 'should return sheltered when need shelter' do
+    google_weather = mock(GoogleWeather)
+    google_weather.stub!(:current_conditions.condition).and_return("rain")
+
+    search = Search.new
+    search.find_venue :location_id => @braybrook.location_id, :sheltered => true
+    venue = search.venue
+    venue.should_not be_nil
+    venue.location.sheltered.should eq true
+
+  end
+
 end
