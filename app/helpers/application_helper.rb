@@ -21,15 +21,13 @@ module ApplicationHelper
         $(function()
         {
             var div_id = "#{id}";
-            $('#' + div_id).show('slow',function() 
+            $('#' + div_id).show('slow',function()
             {
-              showAddress(#{id.to_json}, #{address.to_json});     
+              showAddress(#{id.to_json}, #{address.to_json});
             });
-            
         });
       </script>
-      
     HTML
   end
-  
+
 end

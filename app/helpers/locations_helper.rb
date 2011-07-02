@@ -34,5 +34,5 @@ module LocationsHelper
       });
       </script>
     HTML
-  end  
+  end
 end

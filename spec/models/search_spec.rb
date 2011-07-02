@@ -2,18 +2,10 @@ require 'spec_helper'
 
 describe Search do
   before(:each) do
-    @braybrook = Location.new(:name => "Braybrook", :weather_location => "Braybrook, Victoria")
-    @braybrook.save
-
-    @braybrook_venue1 = Venue.new(:name => "Braybrook Venue 1", :address => "blah", :comments => "some comments", :location => @braybrook, :sheltered => false)
-    @braybrook_venue1.save
-
-    @braybrook_venue2 = Venue.new(:name => "Braybrook Venue 2", :address => "blah", :comments => "some comments", :location => @braybrook, :sheltered => true)
-    @braybrook_venue2.save
-
-    @sunshine = Location.new(:name => "Sunshine", :weather_location => "Sunshine, Victoria")
-    @sunshine.save
-    
+    @braybrook = Location.create! :name => "Braybrook", :weather_location => "Braybrook, Victoria"
+    @braybrook_venue1 = Venue.create! :name => "Braybrook Venue 1", :address => "blah", :comments => "some comments", :location => @braybrook, :sheltered => false
+    @braybrook_venue2 = Venue.create! :name => "Braybrook Venue 2", :address => "blah", :comments => "some comments", :location => @braybrook, :sheltered => true
+    @sunshine = Location.create! :name => "Sunshine", :weather_location => "Sunshine, Victoria"
   end
 
   it 'should have venues' do
