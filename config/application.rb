@@ -37,7 +37,7 @@ module Lunchpicker
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password]
+    config.filter_parameters += [:password, :password_confirmation]
 
     config.active_record.primary_key_prefix_type = :table_name_with_underscore
     config.active_record.schema_format = :sql
