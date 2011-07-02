@@ -24,7 +24,8 @@ Spork.prefork do
     # instead of true.
     config.use_transactional_fixtures = true
   end
-  
+
+  require 'authlogic/test_case'
   module RSpec::Rails::ControllerExampleGroup
     include Authlogic::TestCase
   end
