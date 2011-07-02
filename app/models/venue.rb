@@ -4,11 +4,10 @@ class Venue < ActiveRecord::Base
 
   belongs_to :location
 
-  
   def location_name
     location && location.name
   end
-  
+
   def sheltered_name
     if sheltered.nil? || sheltered == false
       "No"
@@ -16,5 +15,5 @@ class Venue < ActiveRecord::Base
       "Yes"
     end
   end
-  
+
 end
