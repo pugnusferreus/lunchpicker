@@ -24,8 +24,8 @@ describe Search do
   end
 
   it 'should return sheltered when need shelter' do
-    google_weather = mock(GoogleWeather)
-    google_weather.stub!(:current_conditions.condition).and_return("rain")
+    data = {"current_conditions"=>{"condition"=>{"data"=>"Rain"}}}
+    GoogleWeather.any_instance.expects(:weather).times(2).returns(data)
 
     search = Search.new
     search.find_venue :location_id => @braybrook.location_id, :sheltered => true
