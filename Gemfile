@@ -16,4 +16,5 @@ group :development, :test do
   gem 'spork'
   gem 'awesome_print', :require => 'ap'
   gem 'mocha'
+  gem 'shoulda'
 end
