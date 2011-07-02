@@ -6,14 +6,14 @@ class Venue < ActiveRecord::Base
 
   
   def location_name
-    return location && location.name
-  end 
+    location && location.name
+  end
   
   def sheltered_name
-    if(sheltered.nil? || sheltered == false) then
-      return "No"
+    if sheltered.nil? || sheltered == false
+      "No"
     else
-      return "Yes"
+      "Yes"
     end
   end
   
