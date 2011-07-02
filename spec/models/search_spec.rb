@@ -31,7 +31,7 @@ describe Search do
     search.find_venue :location_id => @braybrook.location_id, :sheltered => true
     venue = search.venue
     venue.should_not be_nil
-    venue.location.sheltered.should eq true
+    venue.sheltered.should eq true
 
   end
 
