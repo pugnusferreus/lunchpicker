@@ -22,8 +22,6 @@ describe Location do
 
   it 'should delete location' do
     location = Location.create! :name => "Location 1", :weather_location => "Braybrook, Victoria"
-
-    location = Location.find(location.location_id)
     location_id = location.location_id
     location.destroy
     lambda{ Location.find(location_id) }.should raise_error
