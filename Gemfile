@@ -13,4 +13,5 @@ gem 'hassle', :git => 'https://github.com/jasoncodes/hassle.git'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'spork'
 end
