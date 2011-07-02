@@ -23,8 +23,44 @@ describe Search do
     venue.should be nil
   end
 
-  it 'should return sheltered when need shelter' do
+  it 'should return sheltered when rain' do
     data = {"current_conditions"=>{"condition"=>{"data"=>"Rain"}}}
+    GoogleWeather.any_instance.expects(:weather).times(2).returns(data)
+
+    search = Search.new
+    search.find_venue :location_id => @braybrook.location_id, :sheltered => true
+    venue = search.venue
+    venue.should_not be_nil
+    venue.sheltered.should eq true
+
+  end
+
+  it 'should return sheltered when storm' do
+    data = {"current_conditions"=>{"condition"=>{"data"=>"Storm"}}}
+    GoogleWeather.any_instance.expects(:weather).times(2).returns(data)
+
+    search = Search.new
+    search.find_venue :location_id => @braybrook.location_id, :sheltered => true
+    venue = search.venue
+    venue.should_not be_nil
+    venue.sheltered.should eq true
+
+  end
+
+  it 'should return sheltered when thunderstorm' do
+    data = {"current_conditions"=>{"condition"=>{"data"=>"Thunderstorm"}}}
+    GoogleWeather.any_instance.expects(:weather).times(2).returns(data)
+
+    search = Search.new
+    search.find_venue :location_id => @braybrook.location_id, :sheltered => true
+    venue = search.venue
+    venue.should_not be_nil
+    venue.sheltered.should eq true
+
+  end
+
+  it 'should return sheltered when snow' do
+    data = {"current_conditions"=>{"condition"=>{"data"=>"Snow"}}}
     GoogleWeather.any_instance.expects(:weather).times(2).returns(data)
 
     search = Search.new
