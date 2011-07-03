@@ -17,5 +17,6 @@ group :development, :test do
   gem 'awesome_print', :require => 'ap'
   gem 'mocha'
   gem 'shoulda'
+  gem 'vcr'
   gem 'webmock', :require => false
 end
