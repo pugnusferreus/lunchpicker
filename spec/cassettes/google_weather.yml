@@ -1,0 +1,71 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://www.google.com:80/ig/api?weather=Braybrook,%20Victoria
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      content-type: 
+      - text/xml; charset=ISO-8859-1
+      date: 
+      - Sun, 03 Jul 2011 11:24:43 GMT
+      pragma: 
+      - no-cache
+      expires: 
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      cache-control: 
+      - no-cache, no-store, must-revalidate
+      set-cookie: 
+      - PREF=ID=b53bb934182447f8:TM=1309692283:LM=1309692283:S=1xS0yeZ3IWO64qlm; expires=Tue, 02-Jul-2013 11:24:43 GMT; path=/; domain=.google.com
+      x-content-type-options: 
+      - nosniff
+      server: 
+      - igfe
+      x-xss-protection: 
+      - 1; mode=block
+      x-cache: 
+      - MISS from sentry.backtick.org
+      x-cache-lookup: 
+      - MISS from sentry.backtick.org:3128
+    body: "<?xml version=\"1.0\"?><xml_api_reply version=\"1\"><weather module_id=\"0\" tab_id=\"0\" mobile_row=\"0\" mobile_zipped=\"1\" row=\"0\" section=\"0\" ><forecast_information><city data=\"Braybrook, VIC\"/><postal_code data=\"Braybrook, Victoria\"/><latitude_e6 data=\"\"/><longitude_e6 data=\"\"/><forecast_date data=\"2011-07-03\"/><current_date_time data=\"2011-07-03 10:55:59 +0000\"/><unit_system data=\"US\"/></forecast_information><current_conditions><condition data=\"Partly Cloudy\"/><temp_f data=\"48\"/><temp_c data=\"9\"/><humidity data=\"Humidity: 93%\"/><icon data=\"/ig/images/weather/partly_cloudy.gif\"/><wind_condition data=\"Wind: N at 14 mph\"/></current_conditions><forecast_conditions><day_of_week data=\"Sun\"/><low data=\"46\"/><high data=\"54\"/><icon data=\"/ig/images/weather/partly_cloudy.gif\"/><condition data=\"Partly Cloudy\"/></forecast_conditions><forecast_conditions><day_of_week data=\"Mon\"/><low data=\"43\"/><high data=\"53\"/><icon data=\"/ig/images/weather/chance_of_rain.gif\"/><condition data=\"Scattered Showers\"/></forecast_conditions><forecast_conditions><day_of_week data=\"Tue\"/><low data=\"43\"/><high data=\"49\"/><icon data=\"/ig/images/weather/chance_of_rain.gif\"/><condition data=\"Scattered Showers\"/></forecast_conditions><forecast_conditions><day_of_week data=\"Wed\"/><low data=\"42\"/><high data=\"50\"/><icon data=\"/ig/images/weather/rain.gif\"/><condition data=\"Showers\"/></forecast_conditions></weather></xml_api_reply>"
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://www.google.com:80/ig/api?weather=San%20Francisco
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      content-type: 
+      - text/xml; charset=ISO-8859-1
+      date: 
+      - Sun, 03 Jul 2011 11:30:34 GMT
+      pragma: 
+      - no-cache
+      expires: 
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      cache-control: 
+      - no-cache, no-store, must-revalidate
+      set-cookie: 
+      - PREF=ID=7bf3ac1d91024935:TM=1309692634:LM=1309692634:S=ZO7sOipz06Tonh5e; expires=Tue, 02-Jul-2013 11:30:34 GMT; path=/; domain=.google.com
+      x-content-type-options: 
+      - nosniff
+      server: 
+      - igfe
+      x-xss-protection: 
+      - 1; mode=block
+      x-cache: 
+      - MISS from sentry.backtick.org
+      x-cache-lookup: 
+      - MISS from sentry.backtick.org:3128
+    body: "<?xml version=\"1.0\"?><xml_api_reply version=\"1\"><weather module_id=\"0\" tab_id=\"0\" mobile_row=\"0\" mobile_zipped=\"1\" row=\"0\" section=\"0\" ><forecast_information><city data=\"San Francisco, CA\"/><postal_code data=\"San Francisco\"/><latitude_e6 data=\"\"/><longitude_e6 data=\"\"/><forecast_date data=\"2011-07-02\"/><current_date_time data=\"2011-07-03 10:55:59 +0000\"/><unit_system data=\"US\"/></forecast_information><current_conditions><condition data=\"Clear\"/><temp_f data=\"53\"/><temp_c data=\"12\"/><humidity data=\"Humidity: 93%\"/><icon data=\"/ig/images/weather/sunny.gif\"/><wind_condition data=\"Wind: W at 3 mph\"/></current_conditions><forecast_conditions><day_of_week data=\"Sat\"/><low data=\"57\"/><high data=\"70\"/><icon data=\"\"/><condition data=\"\"/></forecast_conditions><forecast_conditions><day_of_week data=\"Sun\"/><low data=\"57\"/><high data=\"78\"/><icon data=\"/ig/images/weather/sunny.gif\"/><condition data=\"Sunny\"/></forecast_conditions><forecast_conditions><day_of_week data=\"Mon\"/><low data=\"58\"/><high data=\"72\"/><icon data=\"/ig/images/weather/partly_cloudy.gif\"/><condition data=\"Partly Cloudy\"/></forecast_conditions><forecast_conditions><day_of_week data=\"Tue\"/><low data=\"59\"/><high data=\"73\"/><icon data=\"/ig/images/weather/sunny.gif\"/><condition data=\"Sunny\"/></forecast_conditions></weather></xml_api_reply>"
+    http_version: "1.1"
