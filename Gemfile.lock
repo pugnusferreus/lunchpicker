@@ -1,5 +1,5 @@
 GIT
-  remote: http://github.com/Ennova/google-weather.git
+  remote: http://github.com/ennova/google-weather.git
   revision: 35b58d3da7720acc6fc92121cf7213c12c433f09
   specs:
     google_weather (0.2.0)
@@ -50,6 +50,7 @@ GEM
       activemodel (= 3.0.9)
       activesupport (= 3.0.9)
     activesupport (3.0.9)
+    addressable (2.2.6)
     arel (2.0.10)
     awesome_print (0.3.2)
     builder (2.1.2)
@@ -114,6 +115,9 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.28)
+    webmock (1.6.4)
+      addressable (~> 2.2, > 2.2.5)
+      crack (>= 0.1.7)
 
 PLATFORMS
   ruby
@@ -134,3 +138,4 @@ DEPENDENCIES
   sass
   shoulda
   spork
+  webmock

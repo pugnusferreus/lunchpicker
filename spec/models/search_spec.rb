@@ -6,6 +6,10 @@ describe Search do
     @braybrook_venue1 = Venue.create! :name => "Braybrook Venue 1", :address => "blah", :comments => "some comments", :location => @braybrook, :sheltered => false
     @braybrook_venue2 = Venue.create! :name => "Braybrook Venue 2", :address => "blah", :comments => "some comments", :location => @braybrook, :sheltered => true
     @sunshine = Location.create! :name => "Sunshine", :weather_location => "Sunshine, Victoria"
+
+    stub_request(:get, "http://www.google.com/ig/api?weather=Braybrook,%20Victoria").to_return(:status => 200, :body => "", :headers => {})
+    stub_request(:get, "http://www.google.com/ig/api?weather=Sunshine,%20Victoria").to_return(:status => 200, :body => "", :headers => {})
+    
   end
 
   it 'should have venues' do

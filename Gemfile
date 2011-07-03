@@ -1,7 +1,7 @@
 source :rubygems
 
 gem 'rails', '3.0.9'
-gem 'google_weather', :git => 'http://github.com/Ennova/google-weather.git'
+gem 'google_weather', :git => 'http://github.com/ennova/google-weather.git'
 gem 'informal'
 gem 'haml'
 gem 'httparty'
@@ -17,4 +17,5 @@ group :development, :test do
   gem 'awesome_print', :require => 'ap'
   gem 'mocha'
   gem 'shoulda'
+  gem 'webmock', :require => false
 end
