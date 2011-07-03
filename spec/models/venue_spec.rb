@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Venue do
-  before(:each) do
+  before do
     @location =  Location.create! :name => "Location", :weather_location => "Braybrook, Victoria"
   end
 

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Search do
-  before(:each) do
+  before do
     @braybrook = Location.create! :name => "Braybrook", :weather_location => "Braybrook, Victoria"
     @braybrook_venue1 = Venue.create! :name => "Braybrook Venue 1", :address => "blah", :comments => "some comments", :location => @braybrook, :sheltered => false
     @braybrook_venue2 = Venue.create! :name => "Braybrook Venue 2", :address => "blah", :comments => "some comments", :location => @braybrook, :sheltered => true
