@@ -3,16 +3,16 @@
 
 %p
 
-  %select#location_id{ :name => "location_id" }
+  %select#location_id{:name => 'location_id'}
     - Location.all.each do |location|
-      %option{ :value => location.id ,:selected => location.id == @loc_id.to_i}
+      %option{:value => location.id, :selected => location.id == @loc_id.to_i}
         = h location.name
 
-  %input{:type=> "button",:value=> "Search",:id=>"search"}
+  %input{:type => 'button', :value => 'Search', :id => 'search'}
   = venue_search
 
-- if !(@loc_id.nil?)
-  %table{:class=>'data_table'}
+- if @loc_id.present?
+  %table.data_table
     %thead
       %tr
         %th Name
