@@ -6,7 +6,7 @@
   %strong Weather Location:
   = h @location.weather_location
   %input{:type=>"hidden",:id=>"location_weather_location",:value=>"#{@location.weather_location}"}
-  
+
   %input{:type=> "button",:id=> "weather_info_but",:value=>"Check Weather"}
 
 %div{:id => "loading_bar_div", :style => "display:none"}

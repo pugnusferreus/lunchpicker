@@ -7,12 +7,12 @@
       %th Name
 
   %tbody
-    - @locations.each do |location| 
+    - @locations.each do |location|
       %tr
         %td= h location.name
         %td= link_to 'Show', location
         %td= link_to 'Edit', edit_location_path(location)
         %td= link_to 'Destroy', location, :confirm => 'Are you sure?', :method => :delete
-        
+
 %p
-  = link_to 'New Location', new_location_path  
+  = link_to 'New Location', new_location_path

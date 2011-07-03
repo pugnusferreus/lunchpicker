@@ -3,7 +3,6 @@ class Venues < ActiveRecord::Migration
     change_table :venues do |t|
       t.boolean :sheltered, :default => false
     end
-    
   end
 
   def self.down

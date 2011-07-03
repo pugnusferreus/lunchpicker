@@ -68,7 +68,5 @@ describe Search do
     venue = search.venue
     venue.should_not be_nil
     venue.sheltered.should eq true
-
   end
-
 end

@@ -1,11 +1,11 @@
 - if not @current_conditions
-  
+
   %p
     Cannot find weather information for
     %em= h @location_name
-  
+
 - else
-  
+
   %section.current_conditions
     %p
       - img_path = WEATHER_ICON_ROOT_PATH + @current_conditions.icon

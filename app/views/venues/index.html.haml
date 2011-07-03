@@ -2,12 +2,12 @@
   Listing venues
 
 %p
-   
+
   %select#location_id{ :name => "location_id" }
     - Location.all.each do |location|
       %option{ :value => location.id ,:selected => location.id == @loc_id.to_i}
         = h location.name
-        
+
   %input{:type=> "button",:value=> "Search",:id=>"search"}
   = venue_search
 

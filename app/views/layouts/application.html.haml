@@ -15,9 +15,9 @@
 
       %h1#header_menu
         = link_to image_tag("/images/LunchPickerLogo.png", :alt=>'Lunch Picker', :size=>'320x50'), root_path
-        
+
       #main
-        
+
         #sidebar
           %h3
             Menu
@@ -27,8 +27,8 @@
             %p
               = link_to 'Maintain Venues', venues_path
             %p
-              = link_to 'My Account', account_path 
- 
+              = link_to 'My Account', account_path
+
             %p
               = link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?"
           - else
@@ -39,14 +39,14 @@
 
           = link_to "Tutorial", tutorials_path
         #text
-          
+
           - [:notice, :warning, :message].each do |key|
             - unless flash[key].blank?
               %p.flash{:class => key.to_s}= flash[key]
-          
+
           = yield
-        
+
       #footer_menu
         Copyright &copy;
         = Date.today.year
-        = link_to "ProgRiff.com", "http://progriff.com" 
+        = link_to "ProgRiff.com", "http://progriff.com"

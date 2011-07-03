@@ -25,6 +25,5 @@ describe Location do
     location_id = location.location_id
     location.destroy
     lambda{ Location.find(location_id) }.should raise_error
-  end 
-
+  end
 end

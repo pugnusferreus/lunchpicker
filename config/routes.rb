@@ -1,4 +1,4 @@
-Lunchpicker::Application.routes.draw do 
+Lunchpicker::Application.routes.draw do
   resources :venues
 
   resources :locations do
@@ -6,8 +6,8 @@ Lunchpicker::Application.routes.draw do
       get 'weather_info'
     end
   end
-  
-  resource :account, :controller => "users" 
+
+  resource :account, :controller => "users"
   resources :users
   resource :user_session
   resource :tutorials
@@ -31,7 +31,7 @@ Lunchpicker::Application.routes.draw do
 
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
+
   # Sample resource route with more complex sub-resources
   #   map.resources :products do |products|
   #     products.resources :comments

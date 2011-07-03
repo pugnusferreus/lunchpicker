@@ -18,7 +18,7 @@ describe Venue do
   it 'should update venue' do
     venue = Venue.create! :name => "Venue 1", :address => "blah", :comments => "some comments", :location => @location, :sheltered => false
     venue = Venue.find(venue.id)
-    
+
     venue.name = "Venue 2"
     venue.address = "New Address"
     venue.comments = "new comment"
