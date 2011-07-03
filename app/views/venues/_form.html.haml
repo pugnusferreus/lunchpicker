@@ -21,4 +21,4 @@
 %p
   = form.label :sheltered
   %br
-  %input{:type=>"checkbox",:id=>"sheltered",:name=>"venue[sheltered]",:value=> "true",:checked=>@venue.sheltered}
+  = form.check_box :sheltered
