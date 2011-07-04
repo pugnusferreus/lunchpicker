@@ -1,12 +1,10 @@
 require 'spec_helper'
 
 describe LocationsController do
-  before(:each) do
+  before do
     activate_authlogic
     user = User.create! :login=>"pugnusferreus", :password=>"foobar", :password_confirmation=>"foobar"
     UserSession.create user
-
-    #@location = Location.create! :name => "Location 1", :weather_location => "Braybrook, Victoria"
 
   end
 
