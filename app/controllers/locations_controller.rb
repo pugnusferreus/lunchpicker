@@ -1,5 +1,4 @@
 class LocationsController < ApplicationController
-  layout 'default'
   # GET /locations
   # GET /locations.xml
   def index
@@ -116,10 +115,10 @@ class LocationsController < ApplicationController
     @location_name = params[:loc]
     @weather = GoogleWeather.new(@location_name)
     @current_conditions = @weather.current_conditions if @weather.weather.key?('current_conditions')
-    
+
     render :layout => false
   end
-  
+
   def check_session
     if current_user.nil?
       return false

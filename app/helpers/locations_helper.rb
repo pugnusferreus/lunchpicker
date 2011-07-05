@@ -1,6 +1,6 @@
 module LocationsHelper
   def weather_info()
-    return <<-HTML
+    return <<-HTML.html_safe
       <script type="text/javascript" charset="utf-8">
       $(document).ready(function()
       {
@@ -12,7 +12,7 @@ module LocationsHelper
 
           $.ajax(
             {
-              url:'/locations/weather_info/1',
+              url:'/locations/weather_info',
               dataType: 'html',
               data: {'loc': loc},
               type:'get',
@@ -34,5 +34,5 @@ module LocationsHelper
       });
       </script>
     HTML
-  end  
+  end
 end

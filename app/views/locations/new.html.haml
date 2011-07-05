@@ -1,16 +1,12 @@
 %h1
   New location
 
-- form_for(@location) do |f|
+= form_for @location do |f|
   = f.error_messages
-
-  = render :partial => "form", :object => f
+  = render :partial => 'form', :object => f
 
   %p
     = f.submit 'Create'
-    
-    
 
-      
 %p
-  = link_to 'Back', locations_path 
+  = link_to 'Back', locations_path

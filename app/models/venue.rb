@@ -1,21 +1,19 @@
 class Venue < ActiveRecord::Base
-
   validates_presence_of :name
   validates_presence_of :location_id
 
   belongs_to :location
 
-  
   def location_name
-    return location && location.name
-  end 
-  
+    location && location.name
+  end
+
   def sheltered_name
-    if(sheltered.nil? || sheltered == false) then
-      return "No"
+    if sheltered.nil? || sheltered == false
+      "No"
     else
-      return "Yes"
+      "Yes"
     end
   end
-  
+
 end

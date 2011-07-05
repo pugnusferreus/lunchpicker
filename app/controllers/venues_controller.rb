@@ -1,5 +1,4 @@
 class VenuesController < ApplicationController
-  layout 'default'
   # GET /venues
   # GET /venues.xml
   def index
@@ -7,22 +6,22 @@ class VenuesController < ApplicationController
       redirect_to root_path
       return
     end
-    
+
     @loc_id = params[:location_id]
-    
-    if (@loc_id.nil?) 
+
+    if (@loc_id.nil?)
       @venues = Venue.find(:all,:conditions => ["location_id = null"])
     elsif (@loc_id == "")
       @venues = Venue.find(:all,:include=>[:location])
     else
       @venues = Venue.find(:all,:include=>[:location],:conditions=>{:location_id => @loc_id})
     end
-    
+
     respond_to do |format|
       format.html # index.html.erb
-     format.xml  { render :xml => @venues }
+      format.xml  { render :xml => @venues }
     end
-     
+
   end
 
   # GET /venues/1
@@ -52,7 +51,7 @@ class VenuesController < ApplicationController
     if !(@loc_id.nil?)
       @venue.location_id = @loc_id
     end
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @venue }
@@ -74,7 +73,7 @@ class VenuesController < ApplicationController
     if !check_session
       redirect_to root_path
       return
-    end 
+    end
     @venue = Venue.new(params[:venue])
 
     respond_to do |format|
@@ -117,18 +116,18 @@ class VenuesController < ApplicationController
       redirect_to root_path
       return
     end
-    
+
     @venue = Venue.find(params[:id])
     @loc_id = @venue.location_id
     @venue.destroy
    # redirect_to(venues_url)
-    
+
     respond_to do |format|
       format.html { redirect_to(venues_url(:location_id => @loc_id)) }
       format.xml  { head :ok }
     end
   end
-  
+
   def check_session
     if current_user.nil?
       return false
@@ -136,5 +135,5 @@ class VenuesController < ApplicationController
       return true
     end
   end
-  
+
 end

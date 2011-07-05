@@ -1,3 +1,5 @@
+.bundle
 log/*.log
-tmp/**
 public/stylesheets/*.css
+tmp/
+db/development_structure.sql

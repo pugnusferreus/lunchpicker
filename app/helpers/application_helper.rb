@@ -15,21 +15,19 @@ module ApplicationHelper
   end
 
   def map_canvas(id, address)
-    return <<-HTML
+    return <<-HTML.html_safe
       <div id='#{id}' class='map_canvas' style="display:none"></div>
       <script type='text/javascript'>
         $(function()
         {
             var div_id = "#{id}";
-            $('#' + div_id).show('slow',function() 
+            $('#' + div_id).show('slow',function()
             {
-              showAddress(#{id.to_json}, #{address.to_json});     
+              showAddress(#{id.to_json}, #{address.to_json});
             });
-            
         });
       </script>
-      
     HTML
   end
-  
+
 end

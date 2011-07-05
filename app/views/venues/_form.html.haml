@@ -1,7 +1,7 @@
 %p
   = form.label :location_id
   %br
-  = collection_select(:venue, :location_id, Location.all, :location_id, :name, {:prompt => "Please select a location"})
+  = collection_select :venue, :location_id, Location.all, :location_id, :name, :prompt => 'Please select a location'
 
 %p
   = form.label :name
@@ -21,4 +21,4 @@
 %p
   = form.label :sheltered
   %br
-  %input{:type=>"checkbox",:id=>"sheltered",:name=>"venue[sheltered]",:value=> "true",:checked=>@venue.sheltered}
+  = form.check_box :sheltered

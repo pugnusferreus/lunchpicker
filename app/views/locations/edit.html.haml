@@ -1,9 +1,9 @@
 %h1
   Editing Location
 
-- form_for(@location) do |f|
+= form_for @location do |f|
   = f.error_messages
-  = render :partial => "form", :object => f
+  = render :partial => 'form', :object => f
 
   %p
     = f.submit 'Update'
